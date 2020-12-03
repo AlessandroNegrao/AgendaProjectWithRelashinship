@@ -26,10 +26,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mHA-sS-iFC">
-                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="06V-il-qJ1"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="06V-il-qJ1">
+                            <connections>
+                                <segue destination="VIe-MQ-h6X" kind="show" id="jp6-0A-XS9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="VIe-MQ-h6X" kind="show" identifier="addGroup" id="UNA-aN-IyT"/>
+                        <outlet property="addGroup" destination="06V-il-qJ1" id="EoV-Cv-EvZ"/>
+                        <outlet property="tableView" destination="tfr-SN-NLl" id="IyV-gT-Kx9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,7 +113,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="z3O-Ia-EdA" kind="presentation" identifier="addParticipant" id="OSA-AX-Qaa"/>
+                                    <segue destination="z3O-Ia-EdA" kind="show" identifier="addParticipant" id="OSA-AX-Qaa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-nS-8kv">
@@ -131,7 +136,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddParticipantViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="z3O-Ia-EdA" customClass="AddParticipantViewController" customModule="AgendaProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dgi-7j-P2k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ES-p9-u25">
@@ -167,6 +172,7 @@
                         <viewLayoutGuide key="safeArea" id="KaU-nN-j24"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XMo-FH-3wJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7P-GF-cH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
