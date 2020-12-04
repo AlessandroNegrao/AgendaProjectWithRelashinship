@@ -94,6 +94,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="OhW-r8-1bU" id="9ZS-MT-3js"/>
                                             <outlet property="roleLabel" destination="jBQ-0K-F6K" id="fk2-tG-Ryq"/>
+                                            <segue destination="z3O-Ia-EdA" kind="show" identifier="editParticipant" id="yqd-4L-WBE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,6 +132,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
+                                    <action selector="addParticipant:" destination="VIe-MQ-h6X" eventType="touchUpInside" id="Fbs-cw-eWP"/>
                                     <segue destination="z3O-Ia-EdA" kind="show" identifier="addParticipant" id="OSA-AX-Qaa"/>
                                 </connections>
                             </button>
@@ -231,6 +233,9 @@
             <point key="canvasLocation" x="206" y="131"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OSA-AX-Qaa"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="pencil" catalog="system" width="128" height="113"/>

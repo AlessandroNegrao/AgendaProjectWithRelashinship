@@ -9,15 +9,34 @@ import UIKit
 
 class AddParticipantViewController: UIViewController {
     
+    static let shared = AddParticipantViewController()
+    
     @IBOutlet weak var nameParticipant: UITextField!
     @IBOutlet weak var administratorSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIButton!
     
     var adm: String = ""
+    
+    var person: Person?
+    var editPerson: Bool = false
+    
     var people: [Person] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if editPerson{
+            nameParticipant.text = person?.name
+            
+            if person?.role == "Administrator" {
+                administratorSwitch.isOn = true
+            }
+            else{
+                administratorSwitch.isOn = false
+            }
+            
+        }
+        
 
     }
     
