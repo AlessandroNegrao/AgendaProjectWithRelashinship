@@ -16,6 +16,7 @@
 		D6C305E1257923CB003C46B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C305DF257923CB003C46B5 /* LaunchScreen.storyboard */; };
 		D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */; };
 		D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */; };
+		D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E8072579D92E004618BE /* PersonRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D6C305E2257923CB003C46B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantViewController.swift; sourceTree = "<group>"; };
+		D6E5E8072579D92E004618BE /* PersonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		D6C305EB257923DE003C46B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6E5E8072579D92E004618BE /* PersonRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				D6C305D4257923C9003C46B5 /* SceneDelegate.swift in Sources */,
 				D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */,
 				D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */,
+				D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
