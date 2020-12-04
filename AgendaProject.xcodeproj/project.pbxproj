@@ -17,6 +17,7 @@
 		D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */; };
 		D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */; };
 		D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E8072579D92E004618BE /* PersonRepository.swift */; };
+		D6E5E80B257A7520004618BE /* groupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E80A257A7520004618BE /* groupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantViewController.swift; sourceTree = "<group>"; };
 		D6E5E8072579D92E004618BE /* PersonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRepository.swift; sourceTree = "<group>"; };
+		D6E5E80A257A7520004618BE /* groupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E5E8072579D92E004618BE /* PersonRepository.swift */,
+				D6E5E80A257A7520004618BE /* groupCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */,
 				D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */,
 				D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */,
+				D6E5E80B257A7520004618BE /* groupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

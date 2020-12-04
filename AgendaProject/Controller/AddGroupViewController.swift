@@ -7,23 +7,31 @@
 
 import UIKit
 
-class AddGroupViewController: UIViewController {
+class AddGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var imageGroup: UIImageView!
+    @IBOutlet weak var editNameButton: UIButton!
+    @IBOutlet weak var nameGroup: UILabel!
+    @IBOutlet weak var addParticipantButton: UIButton!
+    @IBOutlet weak var chooseImageGroupButton: UIButton!
+    @IBOutlet weak var participantTableView: UITableView!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text? = "Joao"
+        cell.detailTextLabel?.text = "Adm"
+        let person = people[indexPath.row]
+        
+        return cell
+    }
 
 }

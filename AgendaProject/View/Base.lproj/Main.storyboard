@@ -20,6 +20,16 @@
                                 <rect key="frame" x="20" y="146" width="374" height="612"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LSI-0H-j3B">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LSI-0H-j3B" id="otW-0d-ijV">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -58,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="OhW-r8-1bU" detailTextLabel="jBQ-0K-F6K" style="IBUITableViewCellStyleValue1" id="n9V-o8-LQD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="OhW-r8-1bU" detailTextLabel="jBQ-0K-F6K" style="IBUITableViewCellStyleValue1" id="n9V-o8-LQD" customClass="groupCell" customModule="AgendaProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n9V-o8-LQD" id="vQJ-pr-p5W">
@@ -81,6 +91,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="OhW-r8-1bU" id="9ZS-MT-3js"/>
+                                            <outlet property="roleLabel" destination="jBQ-0K-F6K" id="fk2-tG-Ryq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
@@ -88,6 +102,10 @@
                                         <color key="value" systemColor="systemPinkColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="VIe-MQ-h6X" id="LQw-ZE-KJz"/>
+                                    <outlet property="delegate" destination="VIe-MQ-h6X" id="vmC-tO-MrP"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNI-lv-Yk9">
                                 <rect key="frame" x="348" y="205" width="25" height="22"/>
@@ -126,6 +144,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="WAi-ET-A7H"/>
+                    <connections>
+                        <outlet property="addParticipantButton" destination="Gim-xX-sxT" id="Rs0-wt-oJC"/>
+                        <outlet property="chooseImageGroupButton" destination="TNI-lv-Yk9" id="umV-xt-U9Q"/>
+                        <outlet property="editNameButton" destination="u2T-nS-8kv" id="7Qm-LI-gju"/>
+                        <outlet property="imageGroup" destination="Zab-2a-8RX" id="pZN-R0-HlT"/>
+                        <outlet property="nameGroup" destination="8pe-pl-Jfr" id="EiH-l9-diC"/>
+                        <outlet property="participantTableView" destination="vhm-WS-C1N" id="TEx-mu-62c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVX-sU-kGs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,12 +193,20 @@
                                 <rect key="frame" x="186" y="256" width="43" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Salvar"/>
+                                <connections>
+                                    <action selector="saveNewParticipant:" destination="z3O-Ia-EdA" eventType="touchUpInside" id="Uq7-GQ-hke"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KaU-nN-j24"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="XMo-FH-3wJ"/>
+                    <connections>
+                        <outlet property="administratorSwitch" destination="tZe-S6-6Ht" id="nRx-NN-EBO"/>
+                        <outlet property="nameParticipant" destination="3ES-p9-u25" id="gTf-H0-CfG"/>
+                        <outlet property="saveButton" destination="VCg-AM-D3e" id="sEH-gQ-5zB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7P-GF-cH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

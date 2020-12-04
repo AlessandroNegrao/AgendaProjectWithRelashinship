@@ -1,4 +1,3 @@
-//
 //  PersonRepository.swift
 //  AgendaProject
 //
@@ -8,7 +7,7 @@
 import Foundation
 import CoreData
 
-public class PersonRepository {
+public class PersonRepository { 
     static let shared = PersonRepository() // Singleton
     
     let persistentContainer: NSPersistentContainer = {

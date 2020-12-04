@@ -8,22 +8,30 @@
 import UIKit
 
 class AddParticipantViewController: UIViewController {
+    
+    @IBOutlet weak var nameParticipant: UITextField!
+    @IBOutlet weak var administratorSwitch: UISwitch!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var adm: String = ""
+    var people: [Person] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveNewParticipant(_ sender: Any) {
+        
+        if administratorSwitch.isOn == true{
+            adm = "Administrator"
+        }
+        else{
+            adm = "User"
+        }
+        
+        PersonRepository.shared.createPerson(name: nameParticipant.text, role: adm)
+        print("Participant created")
     }
-    */
-
+    
 }
