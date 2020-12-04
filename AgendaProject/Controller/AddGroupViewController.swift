@@ -15,23 +15,40 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var addParticipantButton: UIButton!
     @IBOutlet weak var chooseImageGroupButton: UIButton!
     @IBOutlet weak var participantTableView: UITableView!
+    var people: [Person] = []
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        populatePeopleArray()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return people.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! groupCell
+        
         cell.textLabel?.text? = "Joao"
         cell.detailTextLabel?.text = "Adm"
+        
         let person = people[indexPath.row]
+        cell.fillCellWithTitle(person.name, person.role)
         
         return cell
+    }
+    
+    func populatePeopleArray(){
+        let peopleRepo = PersonRepository.shared //Singleton de novo
+        if let fetchedPeople = peopleRepo.fetchTasks(){
+            people = fetchedPeople
+        }else{
+            people = []
+        }
     }
 
 }
