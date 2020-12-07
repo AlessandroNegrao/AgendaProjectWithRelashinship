@@ -25,6 +25,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     }
     override func viewWillAppear(_ animated: Bool) {
         populatePeopleArray()
+        participantTableView.reloadData()
     }
     
     func populatePeopleArray(){
