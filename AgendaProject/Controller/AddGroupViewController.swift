@@ -29,7 +29,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     
     func populatePeopleArray(){
         let peopleRepo = PersonRepository.shared //Singleton de novo
-        if let fetchedPeople = peopleRepo.fetchTasks(){
+        if let fetchedPeople = peopleRepo.fetchPeople(){
             people = fetchedPeople
         }else{
             people = []
@@ -62,7 +62,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
             people.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .right)
             
-            deletePeople.deleteTask(person: personDeleted)
+            deletePeople.deletePerson(person: personDeleted)
         }
     }
     
