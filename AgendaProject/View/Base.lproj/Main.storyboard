@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" textLabel="OhW-r8-1bU" detailTextLabel="jBQ-0K-F6K" style="IBUITableViewCellStyleValue1" id="n9V-o8-LQD" customClass="groupCell" customModule="AgendaProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParticipantCell" textLabel="OhW-r8-1bU" detailTextLabel="jBQ-0K-F6K" style="IBUITableViewCellStyleValue1" id="n9V-o8-LQD" customClass="ParticipantCell" customModule="AgendaProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n9V-o8-LQD" id="vQJ-pr-p5W">
@@ -92,8 +92,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="OhW-r8-1bU" id="9ZS-MT-3js"/>
-                                            <outlet property="roleLabel" destination="jBQ-0K-F6K" id="fk2-tG-Ryq"/>
+                                            <outlet property="nameLabel" destination="OhW-r8-1bU" id="8zu-z9-NEK"/>
+                                            <outlet property="roleLabel" destination="jBQ-0K-F6K" id="QER-46-i62"/>
                                             <segue destination="z3O-Ia-EdA" kind="show" identifier="editParticipant" id="yqd-4L-WBE"/>
                                         </connections>
                                     </tableViewCell>

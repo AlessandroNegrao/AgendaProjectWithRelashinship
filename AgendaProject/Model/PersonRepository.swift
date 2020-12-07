@@ -14,13 +14,13 @@ public class PersonRepository {
         
         let container = NSPersistentContainer(name: "AgendaProject")
         container.loadPersistentStores{
-        storeDescription, error in
+            storeDescription, error in
             
             if let foundError = error{
                 fatalError("Error: \(foundError)") //crasha o codigo e mostra no console (nao recomendado em etapa de desenvolvimento avançada, na loja ou afins)
             }
         }
-            
+        
         return container
     }()
     
@@ -41,7 +41,7 @@ public class PersonRepository {
         let context = persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
-       
+        
         do {
             let people = try context.fetch(fetchRequest)
             return people
@@ -72,5 +72,5 @@ public class PersonRepository {
             print("Failed to delete: \(deleteError)")
         }
     }
-
+    
 }

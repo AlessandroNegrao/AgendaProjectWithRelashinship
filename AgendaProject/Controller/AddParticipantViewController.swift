@@ -28,13 +28,7 @@ class AddParticipantViewController: UIViewController {
         
         if editPerson{
             nameParticipant.text = person?.name
-            
-            if person?.role == "Administrator" {
-                administratorSwitch.isOn = true
-            }
-            else{
-                administratorSwitch.isOn = false
-            }
+            setStateToSwitch()
         }
     }
     
@@ -45,6 +39,7 @@ class AddParticipantViewController: UIViewController {
             let personRepo = PersonRepository.shared
             personRepo.createPerson(name: nameParticipant.text, role: adm)
             print("Participant created")
+            
         } else {
             
             //Chamar função para atualizar a task no nosso container e mostrar alerta de sucesso ou erro
@@ -58,12 +53,12 @@ class AddParticipantViewController: UIViewController {
             newPerson.name = nameParticipant.text
             setStringToSwitchState()
             newPerson.role = adm
-        
-            if let name = personRepo.updatePerson(person: newPerson){
-                            print("Atualizado")
-                        } else {
-                            print("Oops")
-                        }
+            
+            if personRepo.updatePerson(person: newPerson) != nil{
+                print("Atualizado")
+            } else {
+                print("Oops")
+            }
         }
     }
     
@@ -73,6 +68,15 @@ class AddParticipantViewController: UIViewController {
         }
         else{
             adm = "User"
+        }
+    }
+    
+    func setStateToSwitch(){
+        if person?.role == "Administrator" {
+            administratorSwitch.isOn = true
+        }
+        else{
+            administratorSwitch.isOn = false
         }
     }
     

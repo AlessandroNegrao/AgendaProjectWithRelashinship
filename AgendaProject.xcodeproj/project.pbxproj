@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D640D728257DF06F0019812B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D727257DF06F0019812B /* Functions.swift */; };
 		D6C305D2257923C9003C46B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305D1257923C9003C46B5 /* AppDelegate.swift */; };
 		D6C305D4257923C9003C46B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305D3257923C9003C46B5 /* SceneDelegate.swift */; };
 		D6C305D6257923C9003C46B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305D5257923C9003C46B5 /* ViewController.swift */; };
@@ -17,10 +18,11 @@
 		D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */; };
 		D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */; };
 		D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E8072579D92E004618BE /* PersonRepository.swift */; };
-		D6E5E80B257A7520004618BE /* groupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E80A257A7520004618BE /* groupCell.swift */; };
+		D6E5E80B257A7520004618BE /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5E80A257A7520004618BE /* ParticipantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D640D727257DF06F0019812B /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D6C305CE257923C9003C46B5 /* AgendaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C305D1257923C9003C46B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6C305D3257923C9003C46B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +35,7 @@
 		D6C305EF2579344D003C46B5 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		D6C305F22579345C003C46B5 /* AddParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantViewController.swift; sourceTree = "<group>"; };
 		D6E5E8072579D92E004618BE /* PersonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRepository.swift; sourceTree = "<group>"; };
-		D6E5E80A257A7520004618BE /* groupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupCell.swift; sourceTree = "<group>"; };
+		D6E5E80A257A7520004618BE /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				D6C305DF257923CB003C46B5 /* LaunchScreen.storyboard */,
 				D6C305E2257923CB003C46B5 /* Info.plist */,
 				D6C305DA257923C9003C46B5 /* AgendaProject.xcdatamodeld */,
+				D640D727257DF06F0019812B /* Functions.swift */,
 			);
 			path = AgendaProject;
 			sourceTree = "<group>";
@@ -101,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E5E8072579D92E004618BE /* PersonRepository.swift */,
-				D6E5E80A257A7520004618BE /* groupCell.swift */,
+				D6E5E80A257A7520004618BE /* ParticipantCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,12 +181,13 @@
 			files = (
 				D6C305D6257923C9003C46B5 /* ViewController.swift in Sources */,
 				D6C305DC257923C9003C46B5 /* AgendaProject.xcdatamodeld in Sources */,
+				D640D728257DF06F0019812B /* Functions.swift in Sources */,
 				D6C305D2257923C9003C46B5 /* AppDelegate.swift in Sources */,
 				D6C305D4257923C9003C46B5 /* SceneDelegate.swift in Sources */,
 				D6C305F32579345C003C46B5 /* AddParticipantViewController.swift in Sources */,
 				D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */,
 				D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */,
-				D6E5E80B257A7520004618BE /* groupCell.swift in Sources */,
+				D6E5E80B257A7520004618BE /* ParticipantCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

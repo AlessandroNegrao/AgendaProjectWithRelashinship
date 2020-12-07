@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class groupCell: UITableViewCell{
+class ParticipantCell: UITableViewCell{
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
@@ -17,7 +17,7 @@ class groupCell: UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -26,5 +26,5 @@ class groupCell: UITableViewCell{
         nameLabel.text = name
         roleLabel.text = role
     }
- 
+    
 }

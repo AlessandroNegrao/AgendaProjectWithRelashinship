@@ -8,7 +8,7 @@
 import UIKit
 
 class AddGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var imageGroup: UIImageView!
     @IBOutlet weak var editNameButton: UIButton!
     @IBOutlet weak var nameGroup: UILabel!
@@ -17,11 +17,11 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var participantTableView: UITableView!
     
     var people: [Person] = []
-
-        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         populatePeopleArray()
@@ -46,7 +46,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! groupCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantCell", for: indexPath) as! ParticipantCell
         
         let person = people[indexPath.row]
         cell.fillCellWithTitle(person.name, person.role)
