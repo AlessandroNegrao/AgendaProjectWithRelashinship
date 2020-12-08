@@ -16,6 +16,8 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var chooseImageGroupButton: UIButton!
     @IBOutlet weak var participantTableView: UITableView!
     
+    static let groupSingleton = AddGroupViewController()
+    
     var people: [Person] = []
     
     
@@ -63,7 +65,12 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
             people.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .right)
             
-            deletePeople.deletePerson(person: personDeleted)
+            if (deletePeople.deletePerson(person: personDeleted) != nil){
+                displayAlertWith(title: "Deleted", message: "Participant deleted succesfully")
+            } else {
+                displayAlertWith(title: "Failure", message: "Participant couldn`t be updated")
+
+            }
         }
     }
     
@@ -84,5 +91,12 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             AddParticipantVC.editPerson = false
         }
+    }
+    
+    func displayAlertWith(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -24,7 +24,7 @@ public class PersonRepository {
         return container
     }()
     
-    func createPerson(name: String?, role: String?){
+    func createPerson(name: String?, role: String?) -> Person?{
         let context = persistentContainer.viewContext
         let newPerson = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
         
@@ -32,9 +32,12 @@ public class PersonRepository {
         newPerson.role = role
         do {
             try context.save()
+            return newPerson
         } catch let createError{
+            
             print("failed to create: \(createError)")
         }
+        return nil
     }
     
     func fetchPeople() -> [Person]? {
@@ -63,14 +66,16 @@ public class PersonRepository {
         return nil
     }
     
-    func deletePerson(person: Person){
+    func deletePerson(person: Person) -> Person?{
         let context = persistentContainer.viewContext
         context.delete(person)
         do{
             try context.save()
+            return person
         }catch let deleteError{
             print("Failed to delete: \(deleteError)")
         }
+        return nil
     }
     
 }

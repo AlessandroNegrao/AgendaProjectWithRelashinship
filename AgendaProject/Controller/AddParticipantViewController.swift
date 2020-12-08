@@ -37,9 +37,13 @@ class AddParticipantViewController: UIViewController {
             
             setStringToSwitchState()
             let personRepo = PersonRepository.shared
-            personRepo.createPerson(name: nameParticipant.text, role: adm)
-            print("Participant created")
             
+            if (personRepo.createPerson(name: nameParticipant.text, role: adm) != nil){
+                displayAlertWith(title: "Created", message: "Participant created successfully")
+            } else {
+                displayAlertWith(title: "Failure", message: "Partipant couldn`t be created")
+
+            }
         } else {
             
             //Chamar função para atualizar a task no nosso container e mostrar alerta de sucesso ou erro
@@ -55,9 +59,10 @@ class AddParticipantViewController: UIViewController {
             newPerson.role = adm
             
             if personRepo.updatePerson(person: newPerson) != nil{
-                print("Atualizado")
+                displayAlertWith(title: "Updated", message: "Participant updated successfully")
+                _ = navigationController?.popViewController(animated: true)
             } else {
-                print("Oops")
+                displayAlertWith(title: "Failure", message: "Partipant couldn`t be updated")
             }
         }
     }
@@ -78,6 +83,16 @@ class AddParticipantViewController: UIViewController {
         else{
             administratorSwitch.isOn = false
         }
+    }
+    
+    func displayAlertWith(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:  { (action) in
+            //self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
