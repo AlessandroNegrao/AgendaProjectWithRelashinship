@@ -59,13 +59,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-2a-8RX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-2a-8RX">
                                 <rect key="frame" x="20" y="88" width="374" height="155"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="3ma-QG-Rs8"/>
+                                </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vhm-WS-C1N">
-                                <rect key="frame" x="20" y="315" width="374" height="547"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vhm-WS-C1N">
+                                <rect key="frame" x="20" y="316" width="374" height="546"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParticipantCell" textLabel="OhW-r8-1bU" detailTextLabel="jBQ-0K-F6K" style="IBUITableViewCellStyleValue1" id="n9V-o8-LQD" customClass="ParticipantCell" customModule="AgendaProject" customModuleProvider="target">
@@ -108,42 +110,67 @@
                                     <outlet property="delegate" destination="VIe-MQ-h6X" id="vmC-tO-MrP"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNI-lv-Yk9">
-                                <rect key="frame" x="348" y="205" width="25" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="camera" catalog="system"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pe-pl-Jfr">
-                                <rect key="frame" x="20" y="253" width="374" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participantes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rAu-H6-6oE">
-                                <rect key="frame" x="20" y="284" width="374" height="24"/>
+                                <rect key="frame" x="20" y="285" width="119" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-xX-sxT">
-                                <rect key="frame" x="375" y="285" width="19" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="plus" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-xX-sxT">
+                                <rect key="frame" x="371" y="286" width="18" height="22"/>
+                                <color key="tintColor" red="1" green="0.66715082940000003" blue="0.1585790239" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="addParticipant:" destination="VIe-MQ-h6X" eventType="touchUpInside" id="Fbs-cw-eWP"/>
                                     <segue destination="z3O-Ia-EdA" kind="show" identifier="addParticipant" id="OSA-AX-Qaa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-nS-8kv">
-                                <rect key="frame" x="374" y="251" width="20" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="pencil" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-nS-8kv">
+                                <rect key="frame" x="371.5" y="251" width="17.5" height="22"/>
+                                <color key="tintColor" red="1" green="0.66715082943636572" blue="0.15857902385568412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="pencil" catalog="system"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNI-lv-Yk9">
+                                <rect key="frame" x="364" y="214" width="25" height="22"/>
+                                <color key="tintColor" red="1" green="0.66715082940000003" blue="0.1585790239" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="setImageToGroup:" destination="VIe-MQ-h6X" eventType="touchUpInside" id="kS7-DQ-tKq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pe-pl-Jfr">
+                                <rect key="frame" x="20" y="250" width="56" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kmc-S7-x5I"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.90368304989399206" green="0.87890672243228452" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="TNI-lv-Yk9" secondAttribute="trailing" constant="25" id="8oj-CW-thN"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="trailing" secondItem="8pe-pl-Jfr" secondAttribute="trailing" constant="318" id="Cyq-Dm-rhG"/>
+                            <constraint firstItem="vhm-WS-C1N" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="HqZ-ii-jdQ"/>
+                            <constraint firstItem="Gim-xX-sxT" firstAttribute="top" secondItem="rAu-H6-6oE" secondAttribute="bottom" constant="-23" id="NOd-NP-G3o"/>
+                            <constraint firstItem="TNI-lv-Yk9" firstAttribute="top" secondItem="Zab-2a-8RX" secondAttribute="bottom" constant="-29" id="PNT-GR-N2P"/>
+                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="Zab-2a-8RX" secondAttribute="trailing" constant="20" id="PcK-qk-tJv"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="Qwn-m2-ca7"/>
+                            <constraint firstItem="vhm-WS-C1N" firstAttribute="bottom" secondItem="kmc-S7-x5I" secondAttribute="bottom" id="QzW-bh-Bnm"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="trailing" secondItem="vhm-WS-C1N" secondAttribute="trailing" id="Ssl-3R-cBO"/>
+                            <constraint firstItem="vhm-WS-C1N" firstAttribute="top" secondItem="rAu-H6-6oE" secondAttribute="bottom" constant="7" id="UXj-fM-7H1"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="vhm-WS-C1N" secondAttribute="leading" id="aq2-aj-cAa"/>
+                            <constraint firstItem="rAu-H6-6oE" firstAttribute="leading" secondItem="8pe-pl-Jfr" secondAttribute="leading" id="cwe-WI-v1w"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="top" secondItem="kmc-S7-x5I" secondAttribute="top" id="gZd-Ek-sh5"/>
+                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="ifb-Cd-b4d"/>
+                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="u2T-nS-8kv" secondAttribute="trailing" constant="25" id="nNZ-Wu-6wb"/>
+                            <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="8pe-pl-Jfr" secondAttribute="leading" id="pGB-H0-T0e"/>
+                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="Gim-xX-sxT" secondAttribute="trailing" constant="25" id="q3e-2k-roi"/>
+                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="top" secondItem="Zab-2a-8RX" secondAttribute="bottom" constant="7" id="tHj-Gd-w9i"/>
+                            <constraint firstItem="rAu-H6-6oE" firstAttribute="top" secondItem="8pe-pl-Jfr" secondAttribute="bottom" constant="10" id="wS6-Y4-Ty1"/>
+                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="top" secondItem="u2T-nS-8kv" secondAttribute="bottom" constant="-23" id="xRV-cq-8Hx"/>
+                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="vhm-WS-C1N" secondAttribute="trailing" constant="20" id="zBq-A3-phi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WAi-ET-A7H"/>
                     <connections>
@@ -234,7 +261,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OSA-AX-Qaa"/>
+        <segue reference="yqd-4L-WBE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
@@ -242,6 +269,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

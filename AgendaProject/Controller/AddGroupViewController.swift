@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var imageGroup: UIImageView!
     @IBOutlet weak var editNameButton: UIButton!
@@ -17,14 +17,15 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var participantTableView: UITableView!
     
     static let groupSingleton = AddGroupViewController()
-    
     var people: [Person] = []
-    
+    let imageSetter = UIImagePickerController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageSetter.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         populatePeopleArray()
         participantTableView.reloadData()
@@ -98,5 +99,25 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func setImageToGroup(_ sender: Any) {
+        imageSetter.allowsEditing = false
+        imageSetter.sourceType = .photoLibrary
+        present(imageSetter, animated: true, completion: nil)
+    }
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            imageGroup.contentMode = .scaleAspectFit
+            imageGroup.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+
     }
 }
