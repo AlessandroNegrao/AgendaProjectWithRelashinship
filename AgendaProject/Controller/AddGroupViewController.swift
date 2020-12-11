@@ -107,7 +107,6 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         present(imageSetter, animated: true, completion: nil)
     }
 
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageGroup.contentMode = .scaleAspectFit

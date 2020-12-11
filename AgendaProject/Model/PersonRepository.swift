@@ -10,6 +10,7 @@ import CoreData
 public class PersonRepository { 
     static let shared = PersonRepository() // Singleton
     
+    //Inicialização da unidade de persistência com o persistent container
     let persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "AgendaProject")
@@ -20,18 +21,18 @@ public class PersonRepository {
                 fatalError("Error: \(foundError)") //crasha o codigo e mostra no console (nao recomendado em etapa de desenvolvimento avançada, na loja ou afins)
             }
         }
-        
         return container
     }()
     
+    // Função de criação de objeto e armazenamento no banco de dados
     func createPerson(name: String?, role: String?) -> Person?{
-        let context = persistentContainer.viewContext
+        let context = persistentContainer.viewContext //Declarção do context, uma das unidades do persistent container
         let newPerson = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
         
         newPerson.name = name
         newPerson.role = role
         do {
-            try context.save()
+            try context.save() //Através do context, utilizamos a função save, que envia dados para o Coordinator e persiste
             return newPerson
         } catch let createError{
             
@@ -40,13 +41,14 @@ public class PersonRepository {
         return nil
     }
     
+    // Função de retorno de dados do banco de dados
     func fetchPeople() -> [Person]? {
         let context = persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person") //Através do fetch request uma lista é preparada para receber os valores armazenados no banco
         
         do {
-            let people = try context.fetch(fetchRequest)
+            let people = try context.fetch(fetchRequest) //Trás os valores do banco para a lista people, para que possam ser mostrados...
             return people
         } catch let fetchError{
             print("failed to fetch: \(fetchError)")
@@ -54,6 +56,7 @@ public class PersonRepository {
         return nil
     }
     
+    // Função de atualização de dados de person no banco de dados
     func updatePerson(person: Person) -> Person?{
         let context = persistentContainer.viewContext
         
@@ -66,9 +69,10 @@ public class PersonRepository {
         return nil
     }
     
+    // Função de remoção de dados de person no banco de dados
     func deletePerson(person: Person) -> Person?{
         let context = persistentContainer.viewContext
-        context.delete(person)
+        context.delete(person) //Função de deleção de dados através do context, removendo os mesmos do banco após realizar o save()
         do{
             try context.save()
             return person
