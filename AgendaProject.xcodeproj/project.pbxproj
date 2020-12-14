@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D62DDED82587F77800DCB3FD /* GroupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DDED72587F77800DCB3FD /* GroupRepository.swift */; };
+		D62DDEDB2587FF7D00DCB3FD /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DDEDA2587FF7D00DCB3FD /* GroupCell.swift */; };
 		D640D728257DF06F0019812B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640D727257DF06F0019812B /* Functions.swift */; };
 		D6C305D2257923C9003C46B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305D1257923C9003C46B5 /* AppDelegate.swift */; };
 		D6C305D4257923C9003C46B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C305D3257923C9003C46B5 /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D62DDED72587F77800DCB3FD /* GroupRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRepository.swift; sourceTree = "<group>"; };
+		D62DDEDA2587FF7D00DCB3FD /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		D640D727257DF06F0019812B /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D6C305CE257923C9003C46B5 /* AgendaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C305D1257923C9003C46B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				D6C305D7257923C9003C46B5 /* Main.storyboard */,
 				D6E5E80A257A7520004618BE /* ParticipantCell.swift */,
+				D62DDEDA2587FF7D00DCB3FD /* GroupCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E5E8072579D92E004618BE /* PersonRepository.swift */,
+				D62DDED72587F77800DCB3FD /* GroupRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			files = (
 				D6C305D6257923C9003C46B5 /* ViewController.swift in Sources */,
 				D6C305DC257923C9003C46B5 /* AgendaProject.xcdatamodeld in Sources */,
+				D62DDEDB2587FF7D00DCB3FD /* GroupCell.swift in Sources */,
 				D640D728257DF06F0019812B /* Functions.swift in Sources */,
 				D6C305D2257923C9003C46B5 /* AppDelegate.swift in Sources */,
 				D6C305D4257923C9003C46B5 /* SceneDelegate.swift in Sources */,
@@ -188,6 +195,7 @@
 				D6C305F02579344D003C46B5 /* AddGroupViewController.swift in Sources */,
 				D6E5E8082579D92E004618BE /* PersonRepository.swift in Sources */,
 				D6E5E80B257A7520004618BE /* ParticipantCell.swift in Sources */,
+				D62DDED82587F77800DCB3FD /* GroupRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

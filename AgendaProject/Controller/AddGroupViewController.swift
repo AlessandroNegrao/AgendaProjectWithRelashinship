@@ -11,6 +11,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var participantTableView: UITableView!
     @IBOutlet weak var addParticipant: UIBarButtonItem!
+    @IBOutlet weak var nameGroup: UITextField!
     
     static let groupSingleton = AddGroupViewController()
     var people: [Person] = []
@@ -35,8 +36,6 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
             people = []
         }
     }
-    
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
@@ -95,5 +94,17 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    @IBAction func saveGroup(_ sender: Any) {
+        let groupRepo = GroupRepository.shared //Instância da model de Person
+        
+        //Salvar um dado, criando um registro
+        if (groupRepo.createGroup(nameGroup: nameGroup.text) != nil){
+            displayAlertWith(title: "Created", message: "Group created successfully")
+        } else {
+            displayAlertWith(title: "Failure", message: "Partipant couldn`t be created")
+
+        }
+    }
  
 }

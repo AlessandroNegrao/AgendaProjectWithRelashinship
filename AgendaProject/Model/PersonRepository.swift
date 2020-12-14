@@ -26,40 +26,40 @@ public class PersonRepository {
     
     // Função de criação de objeto e armazenamento no banco de dados
     func createPerson(name: String?, role: String?) -> Person?{
-        let context = persistentContainer.viewContext //Declarção do context, uma das unidades do persistent container
+        let context = persistentContainer.viewContext
         let newPerson = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
         
         newPerson.name = name
         newPerson.role = role
-        do {
-            try context.save() //Através do context, utilizamos a função save, que envia dados para o Coordinator e persiste
+        
+        do{
+            try context.save()
             return newPerson
         } catch let createError{
-            
-            print("failed to create: \(createError)")
+            print("Failed to create:  \(createError)")
         }
-        return nil
+        
+     return nil
     }
     
     // Função de retorno de dados do banco de dados
     func fetchPeople() -> [Person]? {
         let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
         
-        let fetchRequest = NSFetchRequest<Person>(entityName: "Person") //Através do fetch request uma lista é preparada para receber os valores armazenados no banco
-        
-        do {
-            let people = try context.fetch(fetchRequest) //Trás os valores do banco para a lista people, para que possam ser mostrados...
+        do{
+            let people = try context.fetch(fetchRequest)
             return people
-        } catch let fetchError{
-            print("failed to fetch: \(fetchError)")
+        }catch let fetchError{
+            print("Failed to fetch data:  \(fetchRequest)")
         }
-        return nil
+      return nil
     }
     
     // Função de atualização de dados de person no banco de dados
     func updatePerson(person: Person) -> Person?{
         let context = persistentContainer.viewContext
-        
+
         do{
             try context.save()
             return person
