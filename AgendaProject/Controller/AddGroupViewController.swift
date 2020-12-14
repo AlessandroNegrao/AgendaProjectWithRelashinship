@@ -15,6 +15,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var addParticipantButton: UIButton!
     @IBOutlet weak var chooseImageGroupButton: UIButton!
     @IBOutlet weak var participantTableView: UITableView!
+    @IBOutlet weak var addParticipant: UIBarButtonItem!
     
     static let groupSingleton = AddGroupViewController()
     var people: [Person] = []
@@ -40,9 +41,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    @IBAction func addParticipant(_ sender: Any) {
-        
-    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count

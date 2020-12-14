@@ -116,20 +116,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-xX-sxT">
-                                <rect key="frame" x="371" y="286" width="18" height="22"/>
-                                <color key="tintColor" red="1" green="0.66715082940000003" blue="0.1585790239" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="plus" catalog="system"/>
-                                <connections>
-                                    <action selector="addParticipant:" destination="VIe-MQ-h6X" eventType="touchUpInside" id="Fbs-cw-eWP"/>
-                                    <segue destination="z3O-Ia-EdA" kind="show" identifier="addParticipant" id="OSA-AX-Qaa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-nS-8kv">
-                                <rect key="frame" x="371.5" y="251" width="17.5" height="22"/>
-                                <color key="tintColor" red="1" green="0.66715082943636572" blue="0.15857902385568412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="pencil" catalog="system"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNI-lv-Yk9">
                                 <rect key="frame" x="364" y="214" width="25" height="22"/>
                                 <color key="tintColor" red="1" green="0.66715082940000003" blue="0.1585790239" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -138,20 +124,18 @@
                                     <action selector="setImageToGroup:" destination="VIe-MQ-h6X" eventType="touchUpInside" id="kS7-DQ-tKq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pe-pl-Jfr">
-                                <rect key="frame" x="20" y="250" width="56" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CEW-qX-ct2">
+                                <rect key="frame" x="20" y="243" width="369" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kmc-S7-x5I"/>
                         <color key="backgroundColor" red="0.90368304989399206" green="0.87890672243228452" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="TNI-lv-Yk9" secondAttribute="trailing" constant="25" id="8oj-CW-thN"/>
-                            <constraint firstItem="Zab-2a-8RX" firstAttribute="trailing" secondItem="8pe-pl-Jfr" secondAttribute="trailing" constant="318" id="Cyq-Dm-rhG"/>
                             <constraint firstItem="vhm-WS-C1N" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="HqZ-ii-jdQ"/>
-                            <constraint firstItem="Gim-xX-sxT" firstAttribute="top" secondItem="rAu-H6-6oE" secondAttribute="bottom" constant="-23" id="NOd-NP-G3o"/>
                             <constraint firstItem="TNI-lv-Yk9" firstAttribute="top" secondItem="Zab-2a-8RX" secondAttribute="bottom" constant="-29" id="PNT-GR-N2P"/>
                             <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="Zab-2a-8RX" secondAttribute="trailing" constant="20" id="PcK-qk-tJv"/>
                             <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="Qwn-m2-ca7"/>
@@ -159,25 +143,24 @@
                             <constraint firstItem="Zab-2a-8RX" firstAttribute="trailing" secondItem="vhm-WS-C1N" secondAttribute="trailing" id="Ssl-3R-cBO"/>
                             <constraint firstItem="vhm-WS-C1N" firstAttribute="top" secondItem="rAu-H6-6oE" secondAttribute="bottom" constant="7" id="UXj-fM-7H1"/>
                             <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="vhm-WS-C1N" secondAttribute="leading" id="aq2-aj-cAa"/>
-                            <constraint firstItem="rAu-H6-6oE" firstAttribute="leading" secondItem="8pe-pl-Jfr" secondAttribute="leading" id="cwe-WI-v1w"/>
                             <constraint firstItem="Zab-2a-8RX" firstAttribute="top" secondItem="kmc-S7-x5I" secondAttribute="top" id="gZd-Ek-sh5"/>
-                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="leading" secondItem="kmc-S7-x5I" secondAttribute="leading" constant="20" id="ifb-Cd-b4d"/>
-                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="u2T-nS-8kv" secondAttribute="trailing" constant="25" id="nNZ-Wu-6wb"/>
-                            <constraint firstItem="Zab-2a-8RX" firstAttribute="leading" secondItem="8pe-pl-Jfr" secondAttribute="leading" id="pGB-H0-T0e"/>
-                            <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="Gim-xX-sxT" secondAttribute="trailing" constant="25" id="q3e-2k-roi"/>
-                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="top" secondItem="Zab-2a-8RX" secondAttribute="bottom" constant="7" id="tHj-Gd-w9i"/>
-                            <constraint firstItem="rAu-H6-6oE" firstAttribute="top" secondItem="8pe-pl-Jfr" secondAttribute="bottom" constant="10" id="wS6-Y4-Ty1"/>
-                            <constraint firstItem="8pe-pl-Jfr" firstAttribute="top" secondItem="u2T-nS-8kv" secondAttribute="bottom" constant="-23" id="xRV-cq-8Hx"/>
                             <constraint firstItem="kmc-S7-x5I" firstAttribute="trailing" secondItem="vhm-WS-C1N" secondAttribute="trailing" constant="20" id="zBq-A3-phi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WAi-ET-A7H"/>
+                    <navigationItem key="navigationItem" id="WAi-ET-A7H">
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="yBT-mL-ubn">
+                                <connections>
+                                    <segue destination="z3O-Ia-EdA" kind="show" identifier="addParticipant" id="6b4-OH-y3l"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="pencil" catalog="system" id="mKK-dn-cqK"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
-                        <outlet property="addParticipantButton" destination="Gim-xX-sxT" id="Rs0-wt-oJC"/>
+                        <outlet property="addParticipant" destination="yBT-mL-ubn" id="pT1-0x-tpD"/>
                         <outlet property="chooseImageGroupButton" destination="TNI-lv-Yk9" id="umV-xt-U9Q"/>
-                        <outlet property="editNameButton" destination="u2T-nS-8kv" id="7Qm-LI-gju"/>
                         <outlet property="imageGroup" destination="Zab-2a-8RX" id="pZN-R0-HlT"/>
-                        <outlet property="nameGroup" destination="8pe-pl-Jfr" id="EiH-l9-diC"/>
                         <outlet property="participantTableView" destination="vhm-WS-C1N" id="TEx-mu-62c"/>
                     </connections>
                 </viewController>
@@ -260,7 +243,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yqd-4L-WBE"/>
+        <segue reference="6b4-OH-y3l"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
