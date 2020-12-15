@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -13,6 +14,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     var groups: [Group] = []
+    
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
     
     override func viewDidLoad() {
         
@@ -35,7 +41,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupCell
         
         let group = groups[indexPath.row]
-//      cell.nameGroup.text = "Teste"
         cell.fillCellWithTitle(group.nameGroup)
         
         return cell
@@ -43,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func populateGroupsArray(){
         let groupRepo = GroupRepository.shared //Singleton de novo
-        if let fetchedGroups = groupRepo.fetchGroups(){
+        if let fetchedGroups = groupRepo.fetchGroups(context: self.context){
             groups = fetchedGroups
         }else{
             groups = []

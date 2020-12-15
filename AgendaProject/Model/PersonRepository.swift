@@ -25,8 +25,8 @@ public class PersonRepository {
     }()
     
     // Função de criação de objeto e armazenamento no banco de dados
-    func createPerson(name: String?, role: String?) -> Person?{
-        let context = persistentContainer.viewContext
+    func createPerson(context: NSManagedObjectContext, name: String?, role: String?) -> Person?{
+//        let context = persistentContainer.viewContext
         let newPerson = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
         
         newPerson.name = name
@@ -43,8 +43,8 @@ public class PersonRepository {
     }
     
     // Função de retorno de dados do banco de dados
-    func fetchPeople() -> [Person]? {
-        let context = persistentContainer.viewContext
+    func fetchPeople(context: NSManagedObjectContext) -> [Person]? {
+//        let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
         
         do{
@@ -57,8 +57,8 @@ public class PersonRepository {
     }
     
     // Função de atualização de dados de person no banco de dados
-    func updatePerson(person: Person) -> Person?{
-        let context = persistentContainer.viewContext
+    func updatePerson(context: NSManagedObjectContext, person: Person) -> Person?{
+//        let context = persistentContainer.viewContext
 
         do{
             try context.save()
@@ -70,8 +70,8 @@ public class PersonRepository {
     }
     
     // Função de remoção de dados de person no banco de dados
-    func deletePerson(person: Person) -> Person?{
-        let context = persistentContainer.viewContext
+    func deletePerson(context: NSManagedObjectContext, person: Person) -> Person?{
+//        let context = persistentContainer.viewContext
         context.delete(person) //Função de deleção de dados através do context, removendo os mesmos do banco após realizar o save()
         do{
             try context.save()

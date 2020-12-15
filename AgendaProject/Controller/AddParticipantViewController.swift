@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddParticipantViewController: UIViewController {
     
@@ -20,6 +21,10 @@ class AddParticipantViewController: UIViewController {
     var editPerson: Bool = false
     var people: [Person] = []
     
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,7 @@ class AddParticipantViewController: UIViewController {
             let personRepo = PersonRepository.shared //Instância da model de Person
             
             //Salvar um dado, criando um registro
-            if (personRepo.createPerson(name: nameParticipant.text, role: adm) != nil){
+            if (personRepo.createPerson(context: self.context, name: nameParticipant.text, role: adm) != nil){
                 displayAlertWith(title: "Created", message: "Participant created successfully")
             } else {
                 displayAlertWith(title: "Failure", message: "Partipant couldn`t be created")
@@ -59,7 +64,7 @@ class AddParticipantViewController: UIViewController {
             newPerson.role = adm
             
             //Realiza a atualização dos dados de um registro pre-existente
-            if personRepo.updatePerson(person: newPerson) != nil{
+            if personRepo.updatePerson(context: self.context, person: newPerson) != nil{
                 displayAlertWith(title: "Updated", message: "Participant updated successfully")
                 _ = navigationController?.popViewController(animated: true)
             } else {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -17,6 +18,10 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     var people: [Person] = []
     let imageSetter = UIImagePickerController()
 
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +36,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     
     func populatePeopleArray(){
         let peopleRepo = PersonRepository.shared //Singleton de novo
-        if let fetchedPeople = peopleRepo.fetchPeople(){
+        if let fetchedPeople = peopleRepo.fetchPeople(context: self.context){
             people = fetchedPeople
         }else{
             people = []
@@ -60,7 +65,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
             people.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .right)
             
-            if (deletePeople.deletePerson(person: personDeleted) != nil){
+            if (deletePeople.deletePerson(context: self.context, person: personDeleted) != nil){
                 displayAlertWith(title: "Deleted", message: "Participant deleted succesfully")
             } else {
                 displayAlertWith(title: "Failure", message: "Participant couldn`t be updated")
@@ -100,7 +105,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
         let groupRepo = GroupRepository.shared //Instância da model de Person
         
         //Salvar um dado, criando um registro
-        if (groupRepo.createGroup(nameGroup: nameGroup.text) != nil){
+        if (groupRepo.createGroup(context: self.context, nameGroup: nameGroup.text, people: people) != nil){
             displayAlertWith(title: "Created", message: "Group created successfully")
         } else {
             displayAlertWith(title: "Failure", message: "Partipant couldn`t be created")

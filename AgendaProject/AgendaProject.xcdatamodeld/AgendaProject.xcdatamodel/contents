@@ -2,12 +2,12 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
         <attribute name="nameGroup" optional="YES" attributeType="String"/>
-        <relationship name="elfsInGroup" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="groupOfElfs" inverseEntity="Person"/>
+        <relationship name="elfsInGroup" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="groupOfElfs" inverseEntity="Person"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="role" optional="YES" attributeType="String"/>
-        <relationship name="groupOfElfs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="elfsInGroup" inverseEntity="Group"/>
+        <relationship name="groupOfElfs" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="elfsInGroup" inverseEntity="Group"/>
     </entity>
     <entity name="Present" representedClassName="Present" syncable="YES" codeGenerationType="class">
         <attribute name="child" optional="YES" attributeType="String"/>

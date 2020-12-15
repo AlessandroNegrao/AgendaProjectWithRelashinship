@@ -25,11 +25,25 @@ public class GroupRepository {
     }()
     
     // Função de criação de objeto e armazenamento no banco de dados
-    func createGroup(nameGroup: String?) -> Group?{
-        let context = persistentContainer.viewContext //Declarção do context, uma das unidades do persistent container
+    func createGroup(context: NSManagedObjectContext, nameGroup: String?, people: [Person]?) -> Group?{
+//        let context = persistentContainer.viewContext // Declarção do context, uma das unidades do persistent container
         let newGroup = NSEntityDescription.insertNewObject(forEntityName: "Group", into: context) as! Group
         
+        print("+++")
+        print("\(nameGroup!)")
+        print(people!)
+        print("+++")
+        
         newGroup.nameGroup = nameGroup
+        
+        if let personList = people {
+            newGroup.elfsInGroup = NSSet.init(array: personList)
+        }
+//        if people != nil {
+//            print("--- ABC ---")
+//            newGroup.elfsInGroup = NSSet.init(array: people!)
+//            print("--- XYZ ---")
+//        }
         
         do {
             try context.save() //Através do context, utilizamos a função save, que envia dados para o Coordinator e persiste
@@ -42,8 +56,8 @@ public class GroupRepository {
     }
     
     // Função de retorno de dados do banco de dados
-    func fetchGroups() -> [Group]? {
-        let context = persistentContainer.viewContext
+    func fetchGroups(context: NSManagedObjectContext) -> [Group]? {
+//        let context = persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<Group>(entityName: "Group") //Através do fetch request uma lista é preparada para receber os valores armazenados no banco
         
@@ -57,8 +71,8 @@ public class GroupRepository {
     }
     
     // Função de atualização de dados de group no banco de dados
-    func updateGroup(group: Group) -> Group?{
-        let context = persistentContainer.viewContext
+    func updateGroup(context: NSManagedObjectContext, group: Group) -> Group?{
+//        let context = persistentContainer.viewContext
         
         do{
             try context.save()
@@ -70,8 +84,8 @@ public class GroupRepository {
     }
     
     // Função de remoção de dados de group no banco de dados
-    func deleteGroup(group: Group) -> Group?{
-        let context = persistentContainer.viewContext
+    func deleteGroup(context: NSManagedObjectContext, group: Group) -> Group?{
+//        let context = persistentContainer.viewContext
         context.delete(group) //Função de deleção de dados através do context, removendo os mesmos do banco após realizar o save()
         do{
             try context.save()
