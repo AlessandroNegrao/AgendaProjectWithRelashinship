@@ -21,6 +21,7 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         imageSetter.delegate = self
+//        print("Array de pessoas: \(people.count)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

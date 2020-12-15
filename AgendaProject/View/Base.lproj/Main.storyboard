@@ -41,6 +41,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="KZ3-UK-FOo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="KOy-k0-fu0"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -221,7 +225,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KaU-nN-j24"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.90368304990000003" green="0.87890672240000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Participant" id="XMo-FH-3wJ"/>
                     <connections>

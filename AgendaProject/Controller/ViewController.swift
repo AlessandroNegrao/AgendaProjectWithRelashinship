@@ -14,11 +14,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var groups: [Group] = []
     
-//    let paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        print(groups.count)
+//        let paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
 //        print("\(paths[0])")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         populateGroupsArray()
         tableView.reloadData()
     }
@@ -31,6 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupCell
         
         let group = groups[indexPath.row]
+//      cell.nameGroup.text = "Teste"
         cell.fillCellWithTitle(group.nameGroup)
         
         return cell
