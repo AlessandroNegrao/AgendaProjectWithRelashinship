@@ -16,7 +16,9 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     
     static let groupSingleton = AddGroupViewController()
     var people: [Person] = []
-    let imageSetter = UIImagePickerController()
+    public let imageSetter = UIImagePickerController()
+    
+    var group: Group?
 
     var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,11 +28,10 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         imageSetter.delegate = self
-//        print("Array de pessoas: \(people.count)")
+        nameGroup.text = self.group?.nameGroup
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        populatePeopleArray()
         participantTableView.reloadData()
     }
     
@@ -44,14 +45,15 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        guard let elfs = self.group?.elfsInGroup else { return 0 }
+        return elfs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantCell", for: indexPath) as! ParticipantCell
         
-        let person = people[indexPath.row]
-        cell.fillCellWithTitle(person.name, person.role)
+        guard let elf = self.group?.elfsInGroup?.allObjects[indexPath.row] as? Person else { return cell }
+        cell.fillCellWithTitle(elf.name, elf.role)
         
         return cell
     }
@@ -77,17 +79,14 @@ class AddGroupViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let AddParticipantVC = segue.destination as! AddParticipantViewController
         
+        AddParticipantVC.group = self.group
+        guard let indexPath = self.participantTableView.indexPathForSelectedRow else { return }
+        guard let elf = self.group?.elfsInGroup?.allObjects[indexPath.row] as? Person else { return }
+        AddParticipantVC.person = elf
+
         if segue.identifier == "editParticipant" {
             // index da celula da table view que for pressionada
-            guard let selectedCellIndexPath = participantTableView.indexPathForSelectedRow else {
-                return
-            }
-            
-            let index = selectedCellIndexPath.row
-            let selectedTask = people[index]
-            
             AddParticipantVC.editPerson = true
-            AddParticipantVC.person = selectedTask
         } else {
             AddParticipantVC.editPerson = false
         }

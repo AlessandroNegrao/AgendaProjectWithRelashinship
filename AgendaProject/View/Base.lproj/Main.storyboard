@@ -38,6 +38,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameGroup" destination="jKr-wA-Upg" id="zZj-ZN-TbZ"/>
+                                            <segue destination="VIe-MQ-h6X" kind="show" identifier="groupSegue" id="7KD-MQ-Jrr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -259,6 +260,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6b4-OH-y3l"/>
+        <segue reference="7KD-MQ-Jrr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>

@@ -21,11 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        print(groups.count)
-//        let paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
-//        print("\(paths[0])")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +48,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             groups = fetchedGroups
         }else{
             groups = []
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "groupSegue" {
+            if let controller = segue.destination as? AddGroupViewController {
+                guard let selectedCellIndexPath = self.tableView.indexPathForSelectedRow?.row else { return }
+                controller.group = self.groups[selectedCellIndexPath]
+            }
         }
     }
 

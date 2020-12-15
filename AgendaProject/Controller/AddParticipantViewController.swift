@@ -20,6 +20,7 @@ class AddParticipantViewController: UIViewController {
     var person: Person?
     var editPerson: Bool = false
     var people: [Person] = []
+    var group: Group?
     
     var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -44,7 +45,11 @@ class AddParticipantViewController: UIViewController {
             let personRepo = PersonRepository.shared //Instância da model de Person
             
             //Salvar um dado, criando um registro
-            if (personRepo.createPerson(context: self.context, name: nameParticipant.text, role: adm) != nil){
+            guard let theGroup = self.group else {
+                print("falhou")
+                return
+            }
+            if (personRepo.createPerson(context: self.context, name: nameParticipant.text, role: adm, group: theGroup) != nil) {
                 displayAlertWith(title: "Created", message: "Participant created successfully")
             } else {
                 displayAlertWith(title: "Failure", message: "Partipant couldn`t be created")

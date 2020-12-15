@@ -25,12 +25,13 @@ public class PersonRepository {
     }()
     
     // Função de criação de objeto e armazenamento no banco de dados
-    func createPerson(context: NSManagedObjectContext, name: String?, role: String?) -> Person?{
+    func createPerson(context: NSManagedObjectContext, name: String?, role: String?, group: Group?) -> Person?{
 //        let context = persistentContainer.viewContext
         let newPerson = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
         
         newPerson.name = name
         newPerson.role = role
+        newPerson.groupOfElfs = group
         
         do{
             try context.save()
